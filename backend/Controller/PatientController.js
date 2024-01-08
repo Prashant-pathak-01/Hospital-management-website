@@ -3,7 +3,7 @@ export const addPatient=async(req,res)=>{
     try{
         let exist = await PatientSchema.findOne({UserName: req.body.UserName});
         if(exist){
-            res.status(200).json("Patient With this UserName Already Exist");
+            res.status(200).json("Regesetered Successfully !");
             return;
         }
         const newPatient = new PatientSchema(req.body);
