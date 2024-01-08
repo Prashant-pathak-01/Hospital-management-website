@@ -3,12 +3,12 @@ export const addPatient=async(req,res)=>{
     try{
         let exist = await PatientSchema.findOne({UserName: req.body.UserName});
         if(exist){
-            res.status(200).json("Regesetered Successfully !");
+            res.status(200).json("registered Successfully !");
             return;
         }
         const newPatient = new PatientSchema(req.body);
         await newPatient.save();
-        return res.status(200).json("Regestered Successfully !");
+        return res.status(200).json("registered Successfully !");
         
     }catch(error){
         return res.status(500).json(error.message+"Error occured");
